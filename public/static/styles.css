@@ -1,0 +1,304 @@
+/* Custom CSS for CyberSec Academy */
+
+/* Cyberpunk animations */
+@keyframes matrix-rain {
+    0% { transform: translateY(-100vh); }
+    100% { transform: translateY(100vh); }
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 5px currentColor; }
+    50% { box-shadow: 0 0 20px currentColor, 0 0 30px currentColor; }
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 10px rgba(34, 197, 94, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(34, 197, 94, 0.8), 0 0 30px rgba(34, 197, 94, 0.6); }
+}
+
+/* Base styles */
+body {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Matrix background effect */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 20% 30%, rgba(34, 197, 94, 0.3), transparent),
+        radial-gradient(2px 2px at 40% 70%, rgba(34, 197, 94, 0.2), transparent),
+        radial-gradient(1px 1px at 90% 40%, rgba(34, 197, 94, 0.4), transparent);
+    background-size: 200px 300px;
+    animation: matrix-rain 20s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Loading screen */
+#loading-screen {
+    background: linear-gradient(45deg, #000000, #0f172a, #000000);
+    z-index: 1000;
+}
+
+/* Responsibility modal */
+#responsibility-modal .bg-gray-800 {
+    animation: slide-up 0.5s ease-out;
+}
+
+/* Navigation */
+nav {
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.9);
+    border-bottom: 2px solid rgba(34, 197, 94, 0.6);
+}
+
+/* Language toggle */
+#language-toggle {
+    animation: glow 2s ease-in-out infinite;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#language-toggle:hover {
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.7);
+}
+
+#toggle-slider {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#toggle-slider.professional {
+    transform: translateX(2rem);
+}
+
+/* Cards and sections */
+.roadmap-card, 
+.bg-gray-800 {
+    background: rgba(31, 41, 55, 0.9);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.roadmap-card:hover {
+    animation: pulse-glow 1.5s ease-in-out infinite;
+    transform: translateY(-5px) scale(1.02);
+}
+
+/* Resource links */
+.resource-link {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.resource-link:hover {
+    text-shadow: 0 0 8px currentColor;
+    transform: translateX(5px);
+}
+
+.resource-link::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 0;
+    background: linear-gradient(to bottom, #22c55e, #16a34a);
+    transition: height 0.3s ease;
+}
+
+.resource-link:hover::before {
+    height: 100%;
+}
+
+/* Challenge form */
+#challenge-form {
+    animation: fade-in 1s ease-out;
+}
+
+#challenge-form input:focus {
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+    border-color: #22c55e;
+    outline: none;
+}
+
+/* Admin dashboard */
+#admin-dashboard {
+    backdrop-filter: blur(5px);
+}
+
+#admin-dashboard .bg-gray-800 {
+    animation: slide-up 0.4s ease-out;
+}
+
+/* Activity logs */
+#activity-logs {
+    scrollbar-width: thin;
+    scrollbar-color: #22c55e #374151;
+}
+
+#activity-logs::-webkit-scrollbar {
+    width: 6px;
+}
+
+#activity-logs::-webkit-scrollbar-track {
+    background: #374151;
+    border-radius: 3px;
+}
+
+#activity-logs::-webkit-scrollbar-thumb {
+    background: #22c55e;
+    border-radius: 3px;
+}
+
+/* Text animations */
+.text-animate {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.text-fade-out {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.text-fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Button hover effects */
+button {
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
+}
+
+button:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+/* Terminal-style text effect */
+.terminal-text {
+    font-family: 'Courier New', monospace;
+    color: #22c55e;
+    text-shadow: 0 0 5px rgba(34, 197, 94, 0.5);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    #responsibility-modal .max-w-2xl {
+        max-width: 95vw;
+        margin: 1rem;
+    }
+    
+    .text-6xl {
+        font-size: 2.5rem;
+    }
+    
+    .grid.md\\:grid-cols-4 {
+        grid-template-columns: 1fr;
+    }
+    
+    .grid.md\\:grid-cols-3 {
+        grid-template-columns: 1fr;
+    }
+    
+    .grid.md\\:grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .text-gray-300 {
+        color: #ffffff !important;
+    }
+    
+    .border-gray-600 {
+        border-color: #ffffff !important;
+    }
+}
+
+/* Dark mode enhancement */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(135deg, #000000 0%, #0f172a 50%, #000000 100%);
+    }
+}
+
+/* Print styles */
+@media print {
+    body::before {
+        display: none;
+    }
+    
+    #loading-screen,
+    #responsibility-modal,
+    #admin-modal,
+    #admin-dashboard {
+        display: none !important;
+    }
+    
+    nav {
+        background: #000000 !important;
+        color: #000000 !important;
+    }
+}
