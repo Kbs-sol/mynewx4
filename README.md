@@ -4,8 +4,9 @@ A comprehensive cybersecurity learning platform built with Hono and optimized fo
 
 ## 🚀 Live Demo
 
-- **Production URL**: https://3000-i609xmsh94ticc7svkahh-6532622b.e2b.dev
-- **GitHub Repository**: [To be deployed]
+- **Development Preview**: https://3000-i609xmsh94ticc7svkahh-6532622b.e2b.dev
+- **GitHub Repository**: https://github.com/Kbs-sol/mynewx4
+- **Production URL**: Ready for Cloudflare Pages deployment
 
 ## ✨ Features
 
